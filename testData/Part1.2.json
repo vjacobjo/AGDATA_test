@@ -1,0 +1,30 @@
+{
+    "HappyPath": { 
+        "title": "Vinay", 
+        "body":"Jacob-John", 
+        "userId":1989
+    },
+    "MissingTitle": {
+        "body": "headless",
+        "userId":2024
+    },
+    "ExtraInfo": {
+        "title": "Vinay", 
+        "body":"Jacob-John", 
+        "userId":1989,
+        "password": "helloWorld"
+    },
+    "WrongInfo": {
+        "name" : "Vinay",
+        "age" : 35,
+        "isMale": true
+    },
+    "InvalidValues": {
+        "title" : 44,
+        "body" : true,
+        "userId" : "4"
+    },
+    "EmptyBody": {
+
+    }
+}

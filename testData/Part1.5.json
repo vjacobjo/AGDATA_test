@@ -1,0 +1,40 @@
+{
+    "HappyPath1": { 
+        "id": 1,
+        "name": "Vinay",
+        "email": "vinay.jacob.john@live.com",
+        "body": "Checking to see if this works"
+    },
+    "HappyPath100": {
+        "id": 100,
+        "name": "Vinay",
+        "email": "vinay.jacob.john@live.com",
+        "body": "Checking to see if this works"
+    },
+    "MissingInfo": {
+        "id": 1,
+        "body": "headless"
+    },
+    "ExtraInfo": {
+        "id": 1,
+        "name": "Vinay",
+        "email": "vinay.jacob.john@live.com",
+        "body": "Checking to see if this works",
+        "password": "helloWorld"
+    },
+    "WrongInfo": {
+        "id": 1,
+        "name" : "Vinay",
+        "age" : 35,
+        "isMale": true
+    },
+    "InvalidValues": {
+        "id": "yes",
+        "name" : 44,
+        "email" : true,
+        "body" : 4
+    },
+    "EmptyBody": {
+
+    }
+}

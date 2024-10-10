@@ -1,0 +1,41 @@
+{
+    "HappyPath1": { 
+        "id": 1,
+        "title": "Vinay", 
+        "body":"Jacob-John", 
+        "userId":1989
+    },
+    "HappyPath100": {
+        "id": 100,
+        "title": "Vinay", 
+        "body":"Jacob-John", 
+        "userId":1989
+    },
+    "MissingTitle": {
+        "id": 1,
+        "body": "headless",
+        "userId":2024
+    },
+    "ExtraInfo": {
+        "id": 1,
+        "title": "Vinay", 
+        "body":"Jacob-John", 
+        "userId":1989,
+        "password": "helloWorld"
+    },
+    "WrongInfo": {
+        "id": 1,
+        "name" : "Vinay",
+        "age" : 35,
+        "isMale": true
+    },
+    "InvalidValues": {
+        "id": "yes",
+        "title" : 44,
+        "body" : true,
+        "userId" : "4"
+    },
+    "EmptyBody": {
+
+    }
+}
