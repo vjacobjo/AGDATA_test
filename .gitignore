@@ -21,3 +21,6 @@ obj
 
 # DS Store files
 .DS_Store
+
+# Chrome Webdriver
+Chrome

@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 
 namespace JsonPlaceHolder;
 
-public record ResponseObj(int StatusCode, string? Content);
+public record ResponseObj(int StatusCode, string Content);
 
 public class JPHClient: IDisposable
 {
@@ -22,7 +22,7 @@ public class JPHClient: IDisposable
         GC.SuppressFinalize(this);
     }
 
-    public ResponseObj? SendRequest(string request_method, string endpoint, object? body = null, object? parameters = null, Dictionary<string, string?>? segParams = null)
+    public ResponseObj SendRequest(string request_method, string endpoint, object body = null, object parameters = null, Dictionary<string, string> segParams = null)
     {
         Method method_type = (Method)Enum.Parse(typeof(Method), request_method, true);
         var request = new RestRequest(endpoint, method_type);
@@ -37,15 +37,17 @@ public class JPHClient: IDisposable
             {
                 foreach (var j in (JObject)parameters)
                 {
-                    request.AddParameter(j.Key, j.Value?.ToString(), false);
+                    request.AddParameter(j.Key, j.Value?.ToString());
                 }
             }
             else
+            {
                 request.AddObject(parameters);
+            }
         }
         if (segParams is not null)
         {
-            foreach((string key, string? value) in segParams)
+            foreach((string key, string value) in segParams)
             {
                 request.AddUrlSegment(key, value!);
             }
@@ -54,12 +56,12 @@ public class JPHClient: IDisposable
         return (responseObj is null) ? null : new ResponseObj((int)responseObj.StatusCode, responseObj.Content);
     }
 
-    public string? ConvertToString(object? input)
+    public string ConvertToString(object input)
     {
         return (input?.GetType().Name == "String") ? (string)input: input?.ToString();
     }
 
-    public object? ConvertToObject(object? input)
+    public object ConvertToObject(object input)
     {
         var input_type = input?.GetType().Name;
         return (input_type == "String") ? JsonConvert.DeserializeObject((string)input!): input;

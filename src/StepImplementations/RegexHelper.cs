@@ -1,13 +1,13 @@
 using System.Text.RegularExpressions;
 using Newtonsoft.Json.Linq;
 
-namespace example_steps;
+namespace StepImplementations;
 
 public static class RegexHelper
 {
-    public static Dictionary<string, string?>? GetSegParams(string url)
+    public static Dictionary<string, string> GetSegParams(string url)
     {
-        var retVal = new Dictionary<string, string?>();
+        var retVal = new Dictionary<string, string>();
         foreach(Match match in Regex.Matches(url, @"\{(\w+)\}"))
         {
             var segParam = match.Groups[1].Value;
@@ -25,7 +25,7 @@ public static class RegexHelper
         return retVal;
     }
 
-    public static object? GetPropertyValue(object? parentObj, string propertyName)
+    public static object GetPropertyValue(object parentObj, string propertyName)
     {
         if (parentObj is not null)
         {

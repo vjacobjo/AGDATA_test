@@ -4,11 +4,11 @@ using Gauge.CSharp.Lib.Attribute;
 using JsonPlaceHolder;
 using Newtonsoft.Json.Linq;
 
-namespace example_steps;
+namespace StepImplementations;
 
 public class APITestSteps
 {
-    private JPHClient? restClient;
+    private JPHClient restClient;
 
     [Step("Initialize connection to <baseUrl>")]
     public void InitializeClient(string baseUrl)
@@ -35,11 +35,11 @@ public class APITestSteps
     }
 
     [Step("Send request <requestName> to <method_type> <endpoint> with <bodyVariable> as body and <paramVariable> as parameters")]
-    public void SendFullRequest(string requestName, string method_type, string endpoint, string? bodyVariable=null, string? paramVariable=null)
+    public void SendFullRequest(string requestName, string method_type, string endpoint, string bodyVariable=null, string paramVariable=null)
     {
         var responseObj=restClient?.SendRequest(request_method:method_type, 
                                                 endpoint:endpoint, 
-                                                body:bodyVariable is not null? (JObject?)DataStoreGuard.GetValue(bodyVariable):null, 
+                                                body:bodyVariable is not null ? (JObject)DataStoreGuard.GetValue(bodyVariable):null, 
                                                 parameters:paramVariable is not null? DataStoreGuard.GetValue(paramVariable):null, 
                                                 segParams:RegexHelper.GetSegParams(endpoint) ?? null);
         responseObj.Should().NotBeNull("Did not get response object from client.");
@@ -49,21 +49,21 @@ public class APITestSteps
     [Step("Verify status code of <requestName> is <statusCode>")]
     public void VerifyStatusCode(string requestName, int statusCode)
     {
-        var responseObj = (ResponseObj?)DataStoreGuard.GetValue(requestName);
+        var responseObj = (ResponseObj)DataStoreGuard.GetValue(requestName);
         responseObj?.StatusCode.Should().Be(statusCode);
     }
 
     [Step("Print response content of <requestName>")]
     public void PrintResponseContent(string requestName)
     {
-        var responseObj = (ResponseObj?)DataStoreGuard.GetValue(requestName);
+        var responseObj = (ResponseObj)DataStoreGuard.GetValue(requestName);
         GaugeMessages.WriteMessage(responseObj?.Content ?? "Content is Empty");
     }
 
     [Step("Set response content of <requestName> as <castType> to <variableName>")]
     public void CastAndStoreResponse(string requestName, string castType, string variableName)
     {
-        var responseObj = (ResponseObj?)DataStoreGuard.GetValue(requestName);
+        var responseObj = (ResponseObj)DataStoreGuard.GetValue(requestName);
         var responseContent = responseObj?.Content;
         var modelInstance = (castType=="String")?restClient?.ConvertToString(responseContent): restClient?.ConvertToObject(responseContent);
         modelInstance.Should().NotBeNull();
