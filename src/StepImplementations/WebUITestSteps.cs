@@ -1,3 +1,7 @@
+/// <summary>
+/// This implements the Gauge Steps that pertain to WebUI Testing. 
+/// Examples of the Steps can be found in specs/Part2.spec.
+/// </summary>
 using Gauge.CSharp.Lib;
 using Gauge.CSharp.Lib.Attribute;
 using WebUI;
@@ -6,6 +10,9 @@ namespace StepImplementations;
 
 public class WebUITestSteps : ICustomScreenshotWriter
 {
+    /// <summary>
+    /// Instance of the WebUIClient are not stored within the class but in the data store (spec) level from where they are retrieved.
+    /// </summary>
     private WebUIClient webClient{
         get { return (WebUIClient)DataStoreGuard.GetValue("webDriver", true); }
         set { DataStoreGuard.CacheValue("webDriver", value, true); }
@@ -59,6 +66,11 @@ public class WebUITestSteps : ICustomScreenshotWriter
         webClient.Dispose();
     }
 
+    /// <summary>
+    /// This implements abstract method defined in ICustomScreenshotWriter, an interface provided by Gauge.
+    /// Enables taking a screenshot using any custom driver, in this case using our custom webUiClient.
+    /// </summary>
+    /// <returns></returns>
     public string TakeScreenShot()
     {
         var dirPath = Environment.GetEnvironmentVariable("gauge_screenshots_dir");

@@ -1,3 +1,8 @@
+/// <summary>
+/// Defines a template for all POM elements to follow.
+/// A typical POM represenation is a class that inherits this class but defines the xpath the element would be located at.
+/// Methods exposed by the interface are defined as virtual to enable Child classes to override them for different implmentations.
+/// </summary>
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 

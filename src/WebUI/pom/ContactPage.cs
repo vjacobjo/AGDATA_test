@@ -1,3 +1,6 @@
+/// <summary>
+/// This is page loaded from https://www.agdata.com/company/.
+/// </summary>
 using OpenQA.Selenium;
 using WebUI.pom.templates;
 

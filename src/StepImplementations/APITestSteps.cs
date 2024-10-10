@@ -1,3 +1,7 @@
+/// <summary>
+/// This implements the Gauge Steps that pertain to API Testing. 
+/// Examples of the Steps can be found in specs/Part1.spec.
+/// </summary>
 using FluentAssertions;
 using Gauge.CSharp.Lib;
 using Gauge.CSharp.Lib.Attribute;
@@ -8,6 +12,9 @@ namespace StepImplementations;
 
 public class APITestSteps
 {
+    /// <summary>
+    /// private instance of the rest client used to execute API calls.
+    /// </summary>
     private JPHClient restClient;
 
     [Step("Initialize connection to <baseUrl>")]
@@ -88,11 +95,5 @@ public class APITestSteps
         propertyValueRaw.Should().NotBeNull($"Unable to extract value of {propertyName} from object saved in {cachedVariable}");
         var propertyValue = (castType=="String")? restClient?.ConvertToString(propertyValueRaw): restClient?.ConvertToObject(propertyValueRaw);
         DataStoreGuard.CacheValue(variableName, propertyValue);
-    }
-
-    [Step("Debug This")]
-    public void debug_statement()
-    {
-        GaugeMessages.WriteMessage($"Current Directory is {Directory.GetCurrentDirectory()}");
     }
 }
