@@ -11,12 +11,12 @@ public class GenericUI(IWebDriver driver, string xpath) : IGenericUI
     private IWebElement _webElement;
     private IList<IWebElement> _webElements;
 
-    public void Click()
+    public virtual void Click()
     {
         GetWebElement().Click();
     }
 
-    public string GetText()
+    public virtual string GetText()
     {
         string retVal = "";
         foreach (IWebElement e in GetWebElements())
@@ -27,7 +27,7 @@ public class GenericUI(IWebDriver driver, string xpath) : IGenericUI
         return retVal.TrimStart(',');
     }
 
-    public void WaitUntilVisible(int timeout=30)
+    public virtual void WaitUntilVisible(int timeout=30)
     {
         WebDriverWait wait = new(driver, TimeSpan.FromSeconds(timeout));
         wait.Until(d => GetWebElement().Displayed);
