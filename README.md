@@ -75,7 +75,7 @@ gauge run --parallel specs/Part1.spec
 ```
 After test execution, an html report is generated in the reports folder.
 
-More information on how to execute gauge spec files can be found in the [documentation]().
+More information on how to execute gauge spec files can be found in the [documentation](https://docs.gauge.org/execution?os=macos&language=csharp&ide=vscode).
 
 ## Debugging ##
 The gauge VSCode plugin enable a user to run the entire spec file or a specific scenario in debug mode. You can put breakpoints on any of the .cs files on the left side where the line numbers are. On a spec file, there is a linting header that allows you to select Debug Spec/Specification. Triggering it allows you to run the code in debug mode, where it will stop at breakpoints. From there you can step into, over or out a line, as well as peer through variable values in a watch window.
@@ -91,7 +91,7 @@ There is also a [known issue](https://github.com/getgauge/gauge/issues/1960) whe
 While you are able to run test scenarios in parallel, you are unable to define async step implementations. This opens up a possibilty of testing simultaneous requests and checking for race condition. This also a [known issue](https://github.com/getgauge/gauge-dotnet/issues/30) in the Gauge Fraemwork.
 
 ## JsonPlaceHolder not updating ##
-As noted in the [guide](), the JsonPlaceHolder does not update itself with calls. So test cases where we check to see if a post is updated after a call were out of scope.
+As noted in the [guide](https://jsonplaceholder.typicode.com/guide/), the JsonPlaceHolder does not update itself with calls. So test cases where we check to see if a post is updated after a call were out of scope.
 
 # Future Improvements #
 
@@ -102,14 +102,14 @@ This solution is configured to run on Mac. Ideally to have it run cross platform
 * Create a bash script to call the docker commands to build and run commands.
 
 ## Checking Response payloads against an expected schema ##
-Currently, the Part 1 API tests check for status code and prints out the response call. I would ideally like to test the response against a schema to ensure that the response is structured properly. I would have used the [Newtonsoft.Json.Schema]() library to do so and implement specific test cases for this.
+Currently, the Part 1 API tests check for status code and prints out the response call. I would ideally like to test the response against a schema to ensure that the response is structured properly. I would have used the [Newtonsoft.Json.Schema](https://www.newtonsoft.com/jsonschema) library to do so and implement specific test cases for this.
 
 # References #
 
-* [Gauge Framework Documentation]()
+* [Gauge Framework Documentation](https://docs.gauge.org/?os=macos&language=csharp&ide=vscode)
 * [JsonPlaceHolder Guide](https://jsonplaceholder.typicode.com/guide)
-* [RestSharp Documentation]()
-* [Selenium Documentation]()
+* [RestSharp Documentation](https://restsharp.dev/docs/intro)
+* [Selenium Documentation](https://www.selenium.dev/documentation/)
 
 # Appendix: Test Instructions #
 
