@@ -20,10 +20,10 @@ The following dependencies were installed:
 * Microsof .NET SDK 8.0.402
 * [Homebrew](https://brew.sh/) 4.4.0: A package manager used in Mac and Linux. This was used to install Gauge.
 * Gauge Framework version: 1.6.9. The following additional plugins for Gauge were also installed:
-** csharp (0.10.6)
-** dotnet (0.7.2)
-** html-report (4.3.1)
-** screenshot (0.3.0)
+    * csharp (0.10.6)
+    * dotnet (0.7.2)
+    * html-report (4.3.1)
+    * screenshot (0.3.0)
 
 VSCode had to be installed with the following extensions:
 * [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
@@ -44,12 +44,12 @@ These dependencies were installed within the C# projects via nuget packages:
 Here are the directories and files at the base level of the repository
 * env: This is a gauge specific repo which store important environment values and configurations for executing gauge specs. Refer to [documentation](https://docs.gauge.org/configuration?os=macos&language=csharp&ide=vscode#using-environments-in-a-gauge-project)
 * specs: This directory contains the High level Test steps. File format is .spec, and steps are written in english in markdown format. There are currently two files:
-** Part1.spec: Implements [part 1 of the assignment](#part-1---api-testing), involving Rest API calls
-** Part2.spec: Implements [part 2 of the assignment](#part-2---ui-testing-with-selenium), involving Selenium and Web UI testing
+    * Part1.spec: Implements [part 1 of the assignment](#part-1---api-testing), involving Rest API calls
+    * Part2.spec: Implements [part 2 of the assignment](#part-2---ui-testing-with-selenium), involving Selenium and Web UI testing
 * src: This contains the C# solution and project that implement the steps used in the spec file. There are three main projects
-** StepImplementation: Implements the steps used for the spec files.
-** WebUI: Implements a client that wraps around Selenium library, and defines the Page Object Model of the AGDATA website used for testing.
-** JsonPlaceHolder: Defines a RestAPI client for sending requests and processing responses. Serves to encapuslate the Rest Sharp client.
+    * StepImplementation: Implements the steps used for the spec files.
+    * WebUI: Implements a client that wraps around Selenium library, and defines the Page Object Model of the AGDATA website used for testing.
+    * JsonPlaceHolder: Defines a RestAPI client for sending requests and processing responses. Serves to encapuslate the Rest Sharp client.
 * testData: contains supplementary files used for the spec tests. For examples, they may contain example request payloads to use for tests.
 * manifest.json: Gauge Framework required file used for noting language and plugins.
 
@@ -118,28 +118,28 @@ Create a public GitHub repository to complete the following exercise and reply w
 
 ### Part 1 - API Testing ###
 In C#, develop a suite of automated API tests against API end points from https://jsonplaceholder.typicode.com/guide.  It is up to you to design and be able to explain why you built it the way you did.  You should use this an as opportunity to demonstrate to AGDATA your approach to automation and your technical expertise.  You are expected to compile and run these tests during the interview.  If you are unable to complete the test suite to your satisfaction, be prepared to explain what additional functionalities and how much more time you need to complete.  Below are the end points you should cover:
-• GET https://jsonplaceholder.typicode.com/posts
-• POST https://jsonplaceholder.typicode.com/posts
-• PUT https://jsonplaceholder.typicode.com/posts/{postId}
-• DELETE https://jsonplaceholder.typicode.com/posts/{postId}
-• POST https://jsonplaceholder.typicode.com/posts/{postId}/comments
-• GET https://jsonplaceholder.typicode.com/comments?postId={postId}
+* GET https://jsonplaceholder.typicode.com/posts
+* POST https://jsonplaceholder.typicode.com/posts
+* PUT https://jsonplaceholder.typicode.com/posts/{postId}
+* DELETE https://jsonplaceholder.typicode.com/posts/{postId}
+* POST https://jsonplaceholder.typicode.com/posts/{postId}/comments
+* GET https://jsonplaceholder.typicode.com/comments?postId={postId}
 
 ### Part 2 - UI Testing with Selenium  ###
 Use the same repo but add a second project to the VS solution for UI testing.  Once again, this is to showcase your technical abilities and keep in mind DRY principal when creating the page objects.  We will run and debug the flow during the technical interview process.
 Workflow:
-• Open a browser and navigate to "www.agdata.com"
-• On the top navigation menu click on "Company" > "Overview"
-• On the "https://www.agdata.com/company/" page, get back the headings of the 'Our Values' section on the page in a LIST.
-• Click on the "Let's Get Started" button at the bottom
-• Validate that the 'Contact' page is displayed/loaded
+* Open a browser and navigate to "www.agdata.com"
+* On the top navigation menu click on "Company" > "Overview"
+* On the "https://www.agdata.com/company/" page, get back the headings of the 'Our Values' section on the page in a LIST.
+* Click on the "Let's Get Started" button at the bottom
+* Validate that the 'Contact' page is displayed/loaded
 
 ### Project Acceptance Criteria ###  
-• The code base is well organized, easily readable and appropriately commented
-• The project's git commit history is well commented and easy to understand
-• The tests are reliable, and can be executed numerous times in a row without failures
-• Happy path tests were built for all major endpoints
-• Negative path tests were built for testing standard failures
-• Tests have detailed logs or reports helping to troubleshoot failures
-• Tests can be executed in parallel
-• Tests are data driven for maximum coverage
+* The code base is well organized, easily readable and appropriately commented
+* The project's git commit history is well commented and easy to understand
+* The tests are reliable, and can be executed numerous times in a row without failures
+* Happy path tests were built for all major endpoints
+* Negative path tests were built for testing standard failures
+* Tests have detailed logs or reports helping to troubleshoot failures
+* Tests can be executed in parallel
+* Tests are data driven for maximum coverage
